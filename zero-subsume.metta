@@ -1,0 +1,11 @@
+(= (zero-subsume $expr)
+   (let $each (superpose $expr)
+   (if (== (get-metatype $each) Symbol)
+       $each
+       (unify $each (OR $l TRUE)
+          (collapse)
+          (collapse (zero-subsume $each))          
+             )
+          )
+       )
+   )
