@@ -1,10 +1,10 @@
-(= (incon-handle $expr)
-   (let $each (superpose $expr) 
-   (if (== (get-metatype $each) Symbol)
-           $each
+(= (incon-handle-pt $expr)
+    (let $each (superpose $expr)
+        (if (== (get-metatype $each) Symbol)
+            $each
+            (unify $each ($r (AND (NOT $x) $y))
+                $r
+                (collapse (incon-handle-pt $each))))))
 
-           (unify $each ($r (AND (NOT $x) $y))
-               $r
-               (collapse (incon-handle $each))
-           )
-       )))
+(= (incon-handle $expr)
+    (collapse (incon-handle-pt $expr)))
