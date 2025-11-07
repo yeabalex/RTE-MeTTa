@@ -1,4 +1,5 @@
-! (import! &orcut ../or-cut)
+! (register-module! ../RTE-MeTTa)
+! (import! &self RTE-MeTTa:or-cut)
 
-! (assertEqual (collapse (or-cut (AND A (OR (AND (NOT C)) (AND B (OR (NOT D))))))) 
+! (assertEqual (or-cut (AND A (OR (AND (NOT C)) (AND B (OR (NOT D)))))) 
                 (AND A (OR (AND (NOT C)) (AND B (NOT D)))))
